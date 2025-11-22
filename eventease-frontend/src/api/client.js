@@ -11,7 +11,7 @@ import axios from "axios";
 
 // Create an Axios instance
 const client = axios.create({
-    baseURL: "http://localhost:4000/api",
+    baseURL: import.meta.env.VITE_API_BASE_URL,
 });
 
 // Add a request interceptor = runs before every request 
