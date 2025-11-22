@@ -1,0 +1,1 @@
+ALTER TABLE "registrations" ALTER COLUMN "qr_code" SET DEFAULT 'TEMP';

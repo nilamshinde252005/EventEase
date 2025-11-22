@@ -1,0 +1,302 @@
+/* =========================
+   LOGIN PAGE — MATCH GLOBAL THEME
+   ========================= */
+
+/* Full page background */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #050505; /* same as global */
+  padding: 2rem;
+
+  color: #f9fafb;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* =========================
+   Hint box (top-right)
+   ========================= */
+
+.login-hint-box {
+  position: absolute;
+  top: 1.8rem;
+  right: 1.8rem;
+  max-width: 240px;
+
+  background-color: #050505;
+  border: 1px solid #f2c2b9; /* rose accent */
+  border-radius: 16px;
+
+  padding: 1rem 1.25rem;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7);
+  color: #f9fafb;
+  font-size: 0.8rem;
+}
+
+.login-hint-title {
+  margin: 0 0 0.4rem 0;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #f2c2b9;
+  
+}
+
+.login-hint-text {
+  margin: 0.15rem 0;
+  line-height: 1.4;
+}
+
+.login-hint-text span {
+  font-weight: 600;
+  color: #f2c2b9;
+}
+
+/* =========================
+   Login card
+   ========================= */
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background-color: #050505;
+  border-radius: 18px;
+  padding: 1.8rem 2rem;
+  border: 1px solid #c07f73; /* rose metal (soft) */
+  box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+  color: #f9fafb;
+}
+
+
+/* Title + subtitle */
+.login-title {
+  margin: 0;
+  font-size: 1.55rem;
+  letter-spacing: 0.04em;
+  color: #f9fafb;
+}
+
+.login-subtitle {
+  margin: 0.45rem 0 1.4rem 0;
+  font-size: 0.9rem;
+  color: #e5e5e5;
+  opacity: 0.75;
+}
+
+/* Error text */
+.login-error {
+  margin: 0 0 1rem 0;
+  font-size: 0.85rem;
+  color: #ff8484;
+}
+
+/* =========================
+   Form fields
+   ========================= */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.login-field label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #000000;
+}
+
+.login-field input {
+  padding: 0.7rem 0.85rem;
+  border-radius: 10px;
+
+  background-color: #050505;
+  border: 1px solid #c07f73; /* rose metal border used globally */
+  color: #f9fafb;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.login-field input::placeholder {
+  color: #f9fafb;
+  opacity: 0.45;
+}
+
+.login-field input:focus {
+  border-color: #f2c2b9;
+  box-shadow: 0 0 0 1px #f2c2b9;
+}
+
+/* =========================
+   Submit Button (Matches global button rules but NO gradient)
+   ========================= */
+
+.login-button {
+  margin-top: 0.35rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+
+  border-radius: 999px;
+  border: 1px solid #c07f73;
+
+  background-color: #050505; /* NO gradient */
+  color: #f2c2b9;
+
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.55);
+
+  transition: transform 0.08s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.login-button:hover {
+  background-color: #f2c2b9;
+  color: #050505;
+  transform: translateY(-1px);
+}
+
+.login-button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Register link */
+.login-card a {
+  color: #f2c2b9;
+  font-weight: 500;
+}
+/* =======================================
+   RESPONSIVE STYLES
+   ======================================= */
+
+/* --- Large tablets / small laptops --- */
+@media (max-width: 1024px) {
+  /* Let admin content use full width */
+  .admin-main {
+    padding: 1rem;
+  }
+
+  .admin-main-inner {
+    max-width: 100%;
+  }
+}
+
+/* --- Tablets & smaller --- */
+@media (max-width: 768px) {
+  /* Stack sidebar on top of content instead of side-by-side */
+  .admin-layout {
+    flex-direction: column;
+  }
+
+  /* Sidebar becomes full-width horizontal strip */
+  .admin-sidebar {
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    overflow-x: auto; /* scroll if links overflow horizontally */
+  }
+
+  .admin-sidebar h3 {
+    margin-bottom: 0;
+    margin-right: 0.75rem;
+    white-space: nowrap;
+  }
+
+  .admin-sidebar a {
+    white-space: nowrap;
+  }
+
+  /* Main content now just full-width below sidebar */
+  .admin-main {
+    padding: 1rem;
+  }
+
+  .admin-main-inner {
+    max-width: 100%;
+  }
+
+  /* Tables: allow horizontal scroll instead of breaking layout */
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  thead, tbody, tr, th, td {
+    white-space: nowrap;
+  }
+}
+
+/* --- Small phones --- */
+@media (max-width: 480px) {
+  /* Global body padding feel tighter on very small screens */
+  body {
+    font-size: 0.9rem;
+  }
+
+  /* Reduce card / panel padding in general forms */
+  form {
+    padding: 1.1rem 1.2rem;
+  }
+
+  /* Login page tweaks */
+  .login-page {
+    padding: 1.2rem;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  .login-card {
+    max-width: 100%;
+    padding: 1.4rem 1.3rem;
+  }
+
+  /* Make the hint box stack under / above card instead of floating at corner */
+  .login-hint-box {
+    position: static;
+    max-width: 100%;
+    margin-top: 1rem;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Lists/cards spacing a bit tighter */
+  ul[style*="listStyle: \"none\""] > li {
+    padding: 0.85rem 0.9rem !important;
+  }
+}
+
+/* --- Very small devices / extra safety --- */
+@media (max-width: 360px) {
+  .login-title {
+    font-size: 1.3rem;
+  }
+
+  .login-subtitle {
+    font-size: 0.82rem;
+  }
+
+  .login-card {
+    padding: 1.1rem 1rem;
+  }
+}

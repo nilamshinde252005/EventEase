@@ -1,0 +1,756 @@
+/* =========================
+   GLOBAL RESET + BASE
+   ========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter",
+    sans-serif;
+  background-color: #050505; /* deep charcoal metal */
+  color: #f9fafb;
+}
+
+a {
+  color: #f2c2b9; /* rose metal accent */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   NAVBAR
+   ========================= */
+
+nav {
+  background-color: #000000;
+  border-bottom: 1px solid #141414 !important;
+  padding: 0.75rem 1.5rem !important;
+}
+
+nav a {
+  color: #f8f3e8 !important;
+  font-size: 0.9rem;
+}
+
+nav a:hover {
+  opacity: 0.85;
+}
+
+nav span {
+  font-size: 0.9rem;
+  color: #e5e5e5;
+}
+
+/* =========================
+   BUTTONS (global)
+   ========================= */
+
+button {
+  border-radius: 999px;
+  border: 1px solid #c07f73;
+  padding: 0.55rem 1.3rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  /* metallic rose gradient */
+  background-image: linear-gradient(
+    135deg,
+    #f9d3c8 0%,
+    #f2c2b9 35%,
+    #c78a7e 70%,
+    #9b5d52 100%
+  );
+  color: #1a1010;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.55);
+  transition: transform 0.08s ease, box-shadow 0.12s ease,
+    filter 0.12s ease;
+}
+
+button:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+button:active {
+  filter: brightness(0.95);
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* smaller table buttons */
+td button {
+  padding: 0.35rem 0.9rem;
+  font-size: 0.75rem;
+}
+
+/* =========================
+   FORMS (Login, Register, AdminEventForm)
+   ========================= */
+
+form {
+  border-radius: 16px;
+  border: 1px solid #b9aa95;
+  padding: 1.5rem 1.75rem;
+  color: #1c1c1c;
+
+  /* metallic cream panel */
+  background-image: linear-gradient(
+    145deg,
+    #fff9ef 0%,
+    #f8f3e8 40%,
+    #e2d6c4 75%,
+    #c9bba6 100%
+  );
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #7a7468;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #c7bdaa;
+  background-color: rgba(255, 255, 255, 0.65);
+  color: #1c1c1c;
+  padding: 0.6rem 0.7rem;
+  font-size: 0.9rem;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: #9b9284;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #c07f73;
+  box-shadow: 0 0 0 1px #c07f73;
+}
+
+/* error text in forms (styled red inline) */
+form p[style*="red"] {
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+}
+
+/* login / register outer container */
+div[style*="maxWidth: \"400px\""] {
+  background-color: #050505;
+  border-radius: 18px;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid #141414;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.7);
+}
+
+/* =========================
+   SIDEBAR (AdminSidebar.jsx)
+   ========================= */
+
+
+aside h3 {
+  margin-top: 0;
+  margin-bottom: 1rem !important;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #f8f3e8;
+}
+
+/* sidebar links */
+aside a {
+  display: block !important;
+  padding: 0.55rem 0.9rem !important;
+  margin-bottom: 0.4rem !important;
+  border-radius: 999px;
+  background-color: transparent !important;
+  color: #f8f3e8 !important;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border: 1px solid transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease,
+    transform 0.08s ease;
+}
+
+aside a:hover {
+  background-color: #141414 !important;
+  border-color: #2a2a2a;
+  transform: translateX(2px);
+}
+
+/* active NavLink */
+aside a[style*="background-color"] {
+  background-color: #141414 !important;
+  border-color: #f2c2b9;
+  font-weight: 600;
+}
+
+
+/* =========================
+   TABLES (AdminEvents & AdminEventRegistrations)
+   ========================= */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem !important;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #b9aa95;
+
+  /* subtle metallic cream */
+  background-image: linear-gradient(
+    160deg,
+    #fdf6ea 0%,
+    #f4eee0 40%,
+    #e2d6c4 100%
+  );
+  color: #1c1c1c;
+}
+
+thead {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+thead th {
+  padding: 0.75rem 0.9rem;
+  font-size: 0.75rem;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #7a7468;
+}
+
+tbody tr {
+  border-bottom: 1px solid #d1c5b1;
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+tbody td {
+  padding: 0.75rem 0.9rem;
+  font-size: 0.9rem;
+}
+
+/* links inside tables */
+tbody td a {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-right: 0.4rem !important;
+}
+
+/* =========================
+   EVENT LIST (EventsListPage)
+   – keep layout as vertical stack
+   ========================= */
+
+ul[style*="listStyle: \"none\""] {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+/* default cards = Events list */
+ul[style*="listStyle: \"none\""] > li {
+  border-radius: 18px !important;
+  border: 1px solid #2a1918 !important;
+  padding: 1rem 1.1rem !important;
+  margin-bottom: 1rem !important;
+  background-image: linear-gradient(
+    145deg,
+    #201010 0%,
+    #2b1513 35%,
+    #3a1917 70%,
+    #2a1412 100%
+  ); /* dark rose metal */
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.7);
+  color: #f8f3e8;
+}
+
+ul[style*="listStyle: \"none\""] > li h3 {
+  margin: 0 0 0.4rem 0;
+  font-size: 1.05rem;
+}
+
+/* =========================
+   MY REGISTRATIONS
+   – 2-column metallic cards, no big empty side
+   ========================= */
+
+/* registrations cards are the li that CONTAIN a button (Cancel) */
+ul[style*="listStyle: \"none\""] > li:has(> button) {
+  display: inline-block;
+  width: calc(50% - 0.75rem);
+  margin-right: 0.75rem !important;
+  vertical-align: top;
+
+  background-image: linear-gradient(
+    145deg,
+    #fff9ef 0%,
+    #f8f3e8 35%,
+    #e2d6c4 70%,
+    #c9bba6 100%
+  ); /* metallic cream */
+  border: 1px solid #b9aa95 !important;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.65);
+  color: #1c1c1c;
+}
+
+/* second card in each row: remove extra right margin */
+ul[style*="listStyle: \"none\""] > li:has(> button):nth-child(2n) {
+  margin-right: 0 !important;
+}
+
+/* Typography inside registrations */
+ul[style*="listStyle: \"none\""] > li:has(> button) p {
+  margin: 0.2rem 0;
+  font-size: 0.88rem;
+}
+
+ul[style*="listStyle: \"none\""] > li:has(> button) p strong {
+  color: #7a7468;
+}
+
+/* Cancel button position */
+ul[style*="listStyle: \"none\""] > li:has(> button) button {
+  margin-top: 0.6rem;
+}
+
+/* On small screens: stack them again */
+@media (max-width: 640px) {
+  ul[style*="listStyle: \"none\""] > li:has(> button) {
+    width: 100%;
+    margin-right: 0 !important;
+  }
+}
+
+/* =========================
+   EVENT DETAIL PAGE
+   ========================= */
+
+div[style*="maxWidth: \"800px\""] {
+  border-radius: 20px;
+  padding: 1.5rem 1.6rem;
+  border: 1px solid #b9aa95;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.75);
+
+  /* cream-metal card */
+  background-image: linear-gradient(
+    150deg,
+    #fff9ef 0%,
+    #f8f3e8 35%,
+    #e2d6c4 75%,
+    #c9bba6 100%
+  );
+  color: #1c1c1c;
+}
+
+div[style*="maxWidth: \"800px\""] h2 {
+  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
+}
+
+div[style*="maxWidth: \"800px\""] img {
+  border-radius: 14px !important;
+}
+
+div[style*="maxWidth: \"800px\""] p strong {
+  color: #c07f73;
+}
+
+div[style*="maxWidth: \"800px\""] h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #7a7468;
+}
+
+/* =========================
+   TEXT / ERRORS
+   ========================= */
+
+p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* generic red error text outside forms */
+p[style*="color: \"red\""] {
+  font-size: 0.85rem;
+}
+
+/* =========================
+   LOGIN PAGE (custom, no gradients)
+   ========================= */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #050505;
+  padding: 2rem;
+  position: relative;
+}
+
+/* top-right instructions */
+.login-hint-box {
+  position: absolute;
+  top: 1.8rem;
+  right: 1.8rem;
+  max-width: 260px;
+
+  background-color: #050505;
+  border-radius: 16px;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid #f2c2b9;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+  font-size: 0.78rem;
+}
+
+.login-hint-title {
+  margin: 0 0 0.4rem 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #f2c2b9;
+}
+
+.login-hint-text {
+  margin: 0.18rem 0;
+  line-height: 1.4;
+}
+
+.login-hint-text span {
+  font-weight: 600;
+  color: #f2c2b9;
+}
+
+/* main card */
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background-color: #050505;
+  border-radius: 18px;
+  padding: 1.8rem 2rem;
+  border: 1px solid #141414;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.7);
+}
+
+/* override global form styles inside login card (no gradient panel) */
+.login-card form {
+  background-image: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: #f9fafb;
+}
+
+/* titles */
+.login-title {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+}
+
+.login-subtitle {
+  margin: 0.4rem 0 1.2rem 0;
+  font-size: 0.88rem;
+  color: #e5e5e5;
+}
+
+/* error inside login */
+.login-error {
+  margin: 0 0 0.8rem 0;
+  font-size: 0.85rem;
+  color: #ff8484;
+}
+
+/* form fields */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-field label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #e5e5e5;
+}
+
+.login-field input {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #c07f73;
+  background-color: #050505;
+  color: #f9fafb;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.login-field input::placeholder {
+  color: #f9fafb;
+  opacity: 0.45;
+}
+
+.login-field input:focus {
+  border-color: #f2c2b9;
+  box-shadow: 0 0 0 1px #f2c2b9;
+}
+
+/* login submit button — override global gradient */
+.login-button {
+  margin-top: 0.4rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  border: 1px solid #c07f73;
+
+  background-image: none;
+  background-color: #050505;
+  color: #f2c2b9;
+
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.55);
+  transition: transform 0.08s ease, box-shadow 0.12s ease,
+    background-color 0.12s ease, color 0.12s ease;
+}
+
+.login-button:hover {
+  background-color: #f2c2b9;
+  color: #050505;
+  transform: translateY(-1px);
+}
+
+.login-button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* bottom text */
+.login-footer {
+  margin-top: 1rem;
+  font-size: 0.88rem;
+}
+
+/* =========================
+   ADMIN LAYOUT
+   ========================= */
+
+.admin-layout {
+  display: flex;
+}
+
+.admin-sidebar {
+  width: 240px;
+  min-height: 100vh;
+  flex-shrink: 0;
+  background-color: #050505;
+  border-right: 1px solid #141414;
+  padding: 1rem;
+}
+
+.admin-sidebar h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #f8f3e8;
+}
+
+.admin-sidebar a {
+  display: block;
+  padding: 0.55rem 0.9rem;
+  margin-bottom: 0.4rem;
+  border-radius: 999px;
+  background-color: transparent;
+  color: #f8f3e8;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border: 1px solid transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease,
+    transform 0.08s ease;
+}
+
+.admin-sidebar a:hover {
+  background-color: #141414;
+  border-color: #2a2a2a;
+  transform: translateX(2px);
+}
+
+/* main content area */
+.admin-main {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  background-color: #050505;
+}
+
+/* inner width so table & form line up */
+.admin-main-inner {
+  width: 100%;
+  max-width: 900px;
+}
+html {
+  overflow-y: scroll;
+}
+
+/* =======================================
+   RESPONSIVE STYLES
+   ======================================= */
+
+/* --- Large tablets / small laptops --- */
+@media (max-width: 1024px) {
+  /* Let admin content use full width */
+  .admin-main {
+    padding: 1rem;
+  }
+
+  .admin-main-inner {
+    max-width: 100%;
+  }
+}
+
+/* --- Tablets & smaller --- */
+@media (max-width: 768px) {
+  /* Stack sidebar on top of content instead of side-by-side */
+  .admin-layout {
+    flex-direction: column;
+  }
+
+  /* Sidebar becomes full-width horizontal strip */
+  .admin-sidebar {
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    overflow-x: auto; /* scroll if links overflow horizontally */
+  }
+
+  .admin-sidebar h3 {
+    margin-bottom: 0;
+    margin-right: 0.75rem;
+    white-space: nowrap;
+  }
+
+  .admin-sidebar a {
+    white-space: nowrap;
+  }
+
+  /* Main content now just full-width below sidebar */
+  .admin-main {
+    padding: 1rem;
+  }
+
+  .admin-main-inner {
+    max-width: 100%;
+  }
+
+  /* Tables: allow horizontal scroll instead of breaking layout */
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  thead, tbody, tr, th, td {
+    white-space: nowrap;
+  }
+}
+
+/* --- Small phones --- */
+@media (max-width: 480px) {
+  /* Global body padding feel tighter on very small screens */
+  body {
+    font-size: 0.9rem;
+  }
+
+  /* Reduce card / panel padding in general forms */
+  form {
+    padding: 1.1rem 1.2rem;
+  }
+
+  /* Login page tweaks */
+  .login-page {
+    padding: 1.2rem;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  .login-card {
+    max-width: 100%;
+    padding: 1.4rem 1.3rem;
+  }
+
+  /* Make the hint box stack under / above card instead of floating at corner */
+  .login-hint-box {
+    position: static;
+    max-width: 100%;
+    margin-top: 1rem;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Lists/cards spacing a bit tighter */
+  ul[style*="listStyle: \"none\""] > li {
+    padding: 0.85rem 0.9rem !important;
+  }
+}
+
+/* --- Very small devices / extra safety --- */
+@media (max-width: 360px) {
+  .login-title {
+    font-size: 1.3rem;
+  }
+
+  .login-subtitle {
+    font-size: 0.82rem;
+  }
+
+  .login-card {
+    padding: 1.1rem 1rem;
+  }
+}
