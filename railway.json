@@ -1,0 +1,9 @@
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": {
+    "root": "eventease-backend"
+  },
+  "deploy": {
+    "startCommand": "npm run start"
+  }
+}
