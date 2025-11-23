@@ -29,7 +29,7 @@ export default function AppRouter() {
 
         {/* App layout */}
         <Route element={<AppLayout />}>
-          <Route path="/" element={<Navigate to="/events" replace />} />
+          <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="/events" element={<EventsListPage />} />
           <Route path="/events/:id" element={<EventDetailPage />} />
 
